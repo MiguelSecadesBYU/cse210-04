@@ -2,30 +2,30 @@ from game.casting.actor import Actor
 
 
 class Artifact(Actor):
-    """
-    An item of cultural or historical interest. 
+    """ 
+    The responsibility of Artifact is to keep track of the rock and gem artifacts 
+    and add or remove points as necessary.
     
-    The responsibility of an Artifact is to provide a message about itself.
-
     Attributes:
-        _message (string): A short description about the artifact.
+        _points (int): the points the player earns or loses when catching an artifact.
     """
     def __init__(self):
         super().__init__()
-        self._message = ""
-        
-    def get_message(self):
-        """Gets the artifact's message.
+        self._points = 0
+
+    def get_points(self):
+        """Returns the current score.
         
         Returns:
-            string: The message.
+            int: The current score.
         """
-        return self._message
-    
-    def set_message(self, message):
+        return self._points
+
+    def add_points(self, points):
         """Updates the message to the given one.
         
         Args:
             message (string): The given message.
         """
-        self._message = message
+        self._points += points
+        self.set_text(f"Score: {self._points}")

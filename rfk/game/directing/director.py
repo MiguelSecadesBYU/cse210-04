@@ -32,7 +32,7 @@ class Director:
         self._video_service.close_window()
 
     def _get_inputs(self, cast):
-        """Gets directional input from the keyboard and applies it to the robot.
+        """Gets directional input from the keyboard and applies it to the artifacts.
         
         Args:
             cast (Cast): The cast of actors.
@@ -42,7 +42,7 @@ class Director:
         robot.set_velocity(velocity)        
 
     def _do_updates(self, cast):
-        """Updates the robot's position and resolves any collisions with artifacts.
+        """Updates the player's position and resolves any collisions with artifacts.
         
         Args:
             cast (Cast): The cast of actors.
@@ -62,7 +62,7 @@ class Director:
                 banner.set_text(message)    
         
     def _do_outputs(self, cast):
-        """Draws the actors on the screen.
+        """Draws the cast of actors on the screen.
         
         Args:
             cast (Cast): The cast of actors.
