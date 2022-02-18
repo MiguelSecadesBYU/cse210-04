@@ -4,28 +4,30 @@ from game.casting.actor import Actor
 class Artifact(Actor):
     """ 
     The responsibility of Artifact is to keep track of the rock and gem artifacts 
-    and add or remove points as necessary.
+    and assign points values
     
     Attributes:
+        
         _points (int): the points the player earns or loses when catching an artifact.
     """
+
     def __init__(self):
         super().__init__()
-        self._points = 0
+        self._points = 1
 
     def get_points(self):
-        """Returns the current score.
+         """Gets the artifacts's point value.
         
         Returns:
-            int: The current score.
+            int: the points
         """
-        return self._points
+    pass
 
-    def add_points(self, points):
-        """Updates the message to the given one.
+    def set_points(self): 
+        """Assigns points based on artifact type (rock or gem).
         
-        Args:
-            message (string): The given message.
+        Returns:
+            _points (int): the appropriate number of points for the 
+            given artifact type.
         """
-        self._points += points
-        self.set_text(f"Score: {self._points}")
+    pass
