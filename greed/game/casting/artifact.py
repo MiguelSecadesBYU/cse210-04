@@ -31,3 +31,12 @@ class Artifact(Actor):
             given artifact type.
         """
     pass
+
+    def set_message(self, text): 
+            """Assigns points based on artifact type (rock or gem).
+            
+            Returns:
+                _points (int): the appropriate number of points for the 
+                given artifact type.
+            """
+    pass
