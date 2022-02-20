@@ -14,14 +14,16 @@ class Artifact(Actor):
     def __init__(self):
         super().__init__()
         self._points = 1
+        self._text = ""
 
     def get_points(self):
-         """Gets the artifacts's point value.
+        """Gets the artifacts's point value.
         
         Returns:
             int: the points
         """
-    pass
+        return self._points
+    
 
     def set_points(self): 
         """Assigns points based on artifact type (rock or gem).
@@ -30,13 +32,22 @@ class Artifact(Actor):
             _points (int): the appropriate number of points for the 
             given artifact type.
         """
-    pass
+        self._points = self._points
 
-    def set_message(self, text): 
-            """Assigns points based on artifact type (rock or gem).
-            
-            Returns:
-                _points (int): the appropriate number of points for the 
-                given artifact type.
-            """
-    pass
+    def get_text(self):
+        """Gets the artifact's message.
+        
+        Returns:
+            string: The message.
+        """
+        return self._text
+
+    def set_text(self, text): 
+        """Assigns points based on artifact type (rock or gem).
+        
+        Returns:
+            _points (int): the appropriate number of points for the 
+            given artifact type.
+        """
+        self._text = text
+    
