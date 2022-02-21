@@ -51,6 +51,7 @@ def main():
     robot.set_color(WHITE)
     robot.set_position(position)
     cast.add_actor("robots", robot)
+    artifact_symbol = ['*', 'o']
     
     # create the artifacts
     with open(DATA_PATH) as file:
@@ -58,8 +59,8 @@ def main():
         messages = data.splitlines()
 
     for n in range(DEFAULT_ARTIFACTS):
-        text = chr(random.randint(33, 126))
-        message = messages[n]
+        text = random.choice(artifact_symbol)
+       
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
