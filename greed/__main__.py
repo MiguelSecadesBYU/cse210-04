@@ -54,10 +54,6 @@ def main():
     artifact_symbol = ['*', 'o']
     
     # create the artifacts
-    with open(DATA_PATH) as file:
-        data = file.read()
-        messages = data.splitlines()
-
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(artifact_symbol)
        
