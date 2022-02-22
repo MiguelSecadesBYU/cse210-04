@@ -45,3 +45,17 @@ class KeyboardService:
         direction = direction.scale(self._cell_size)
         
         return direction
+
+    def get_directionA(self):
+        """Gets the selected direction for one artifact.
+
+        Returns:
+            Point: The selected direction.
+        """
+        dx = 0
+        dy = 1
+
+        direction = Point(dx, dy)
+        direction = direction.scale(self._cell_size)
+        
+        return direction

@@ -40,6 +40,11 @@ class Director:
         robot = cast.get_first_actor("robots")
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)
+        artifacts = cast.get_actors("artifacts")            
+        velocityA = self._keyboard_service.get_directionA()
+        
+        for art in artifacts:
+            art.set_velocity(velocityA)
 
     def _do_updates(self, cast):
         """Updates the player's position and resolves any collisions with artifacts.
@@ -56,6 +61,9 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
+
+        for art in artifacts:
+            art.move_next(max_x, max_y)
 
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):

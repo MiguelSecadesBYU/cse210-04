@@ -24,7 +24,7 @@ ROWS = 40
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 10
 
 
 def main():
@@ -42,7 +42,7 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = int(550)
     position = Point(x, y)
 
     robot = Actor()
@@ -57,7 +57,6 @@ def main():
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(artifact_symbol)
        
-
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
@@ -68,12 +67,12 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
         
-        artifact = Artifact()
+        artifact = Actor()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
-        artifact.set_text(text)
+        #artifact.set_text(text)
         cast.add_actor("artifacts", artifact)
     
     # start the game
