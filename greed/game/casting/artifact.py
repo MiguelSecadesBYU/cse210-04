@@ -51,19 +51,4 @@ class Artifact(Actor):
         """
         self._text = text
 
-    def set_position(self, position):
-            """Updates the position to the given one.
-            
-            Args:
-                position (Point): The given position.
-            """
-            self._position = position
-
-    def set_velocity(self, velocity):
-        """Updates the velocity to the given one.
-        
-        Args:
-            velocity (Point): The given velocity.
-        """
-        self._velocity = velocity
     

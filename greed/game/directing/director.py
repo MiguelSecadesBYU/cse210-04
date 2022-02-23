@@ -72,6 +72,7 @@ class Director:
                 elif artifact.get_text() == 'o':
                     message = "Hit a rock"  #This is for tracking only. Change to the code to subtract a point.
                 banner.set_text(message)
+                artifact.set_text("")
 
     def _do_outputs(self, cast):
         """Draws the cast of actors on the screen.
