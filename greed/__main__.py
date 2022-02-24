@@ -13,41 +13,32 @@ from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
 
-
 FRAME_RATE = 12
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 10
-FONT_SIZE = 15
-COLS = 60
-ROWS = 40
+FONT_SIZE = 20
+COLS = 85
+ROWS = 60
 CAPTION = "Greed"
 DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 20
+DEFAULT_ARTIFACTS = 30
 
 
 def main():
-    
+
     # create the cast
     cast = Cast()
-    
-    # create the banner
-    banner = Actor()
-    banner.set_text("")
-    banner.set_font_size(FONT_SIZE)
-    banner.set_color(WHITE)
-    banner.set_position(Point(CELL_SIZE, 0))
-    cast.add_actor("banners", banner)
 
     # create the score
     score = Actor()
     score.set_text("")
     score.set_font_size(FONT_SIZE)
     score.set_color(WHITE)
-    score.set_position(Point(MAX_Y, 0))
+    score.set_position(Point(10, 5))
     cast.add_actor("scores", score)
-    
+
     # create the robot
     x = int(MAX_X / 2)
     y = int(550)
@@ -60,11 +51,11 @@ def main():
     robot.set_position(position)
     cast.add_actor("robots", robot)
     artifact_symbol = ['*', 'o']
-    
+
     # create the artifacts
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(artifact_symbol)
-       
+
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
@@ -74,7 +65,7 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
-        
+
         artifact = Actor()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
@@ -82,7 +73,7 @@ def main():
         artifact.set_position(position)
         #artifact.set_text(text)
         cast.add_actor("artifacts", artifact)
-    
+
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)

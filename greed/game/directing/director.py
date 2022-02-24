@@ -53,12 +53,10 @@ class Director:
         Args:
             cast (Cast): The cast of actors.
         """
-        banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
         score = cast.get_first_actor("scores")
 
-        banner.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
@@ -70,12 +68,9 @@ class Director:
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_text() == '*':
-                    # message = "Hit a gem"  #This is for tracking only. Change to the code to add a point.
                     points = 1
                 elif artifact.get_text() == 'o':
-                    #  message = "Hit a rock"  #This is for tracking only. Change to the code to subtract a point.
                     points = -1
-            # banner.set_text(message)
                 artifact.set_text("")
         self._points += points
 
