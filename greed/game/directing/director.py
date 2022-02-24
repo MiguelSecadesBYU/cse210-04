@@ -41,9 +41,9 @@ class Director:
         robot = cast.get_first_actor("robots")
         velocity = self._keyboard_service.get_direction()
         robot.set_velocity(velocity)
-        artifacts = cast.get_actors("artifacts")            
+        artifacts = cast.get_actors("artifacts")
         velocityA = self._keyboard_service.get_directionA()
-        
+
         for art in artifacts:
             art.set_velocity(velocityA)
 
@@ -70,12 +70,12 @@ class Director:
         for artifact in artifacts:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_text() == '*':
-                    message = "Hit a gem"  #This is for tracking only. Change to the code to add a point.
+                    # message = "Hit a gem"  #This is for tracking only. Change to the code to add a point.
                     points = 1
                 elif artifact.get_text() == 'o':
-                    message = "Hit a rock"  #This is for tracking only. Change to the code to subtract a point.
+                    #  message = "Hit a rock"  #This is for tracking only. Change to the code to subtract a point.
                     points = -1
-                banner.set_text(message)
+            # banner.set_text(message)
                 artifact.set_text("")
         self._points += points
 
