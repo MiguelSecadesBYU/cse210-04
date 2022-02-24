@@ -13,7 +13,7 @@ class Artifact(Actor):
 
     def __init__(self):
         super().__init__()
-        self._points = 1
+        #self._points = 1
         self._text = ""
 
     def get_points(self):

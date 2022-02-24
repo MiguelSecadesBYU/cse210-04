@@ -17,6 +17,7 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self._points = 0
 
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -55,12 +56,13 @@ class Director:
         banner = cast.get_first_actor("banners")
         robot = cast.get_first_actor("robots")
         artifacts = cast.get_actors("artifacts")
-        score = cast.get_first_actor("score")
+        score = cast.get_first_actor("scores")
 
         banner.set_text("")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
+        points = 0
 
         for art in artifacts:
             art.move_next(max_x, max_y)
@@ -69,10 +71,15 @@ class Director:
             if robot.get_position().equals(artifact.get_position()):
                 if artifact.get_text() == '*':
                     message = "Hit a gem"  #This is for tracking only. Change to the code to add a point.
+                    points = 1
                 elif artifact.get_text() == 'o':
                     message = "Hit a rock"  #This is for tracking only. Change to the code to subtract a point.
+                    points = -1
                 banner.set_text(message)
                 artifact.set_text("")
+        self._points += points
+
+        score.set_text(f"Score: {self._points}")
 
     def _do_outputs(self, cast):
         """Draws the cast of actors on the screen.
