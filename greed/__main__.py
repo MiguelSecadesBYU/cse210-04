@@ -21,7 +21,6 @@ FONT_SIZE = 20
 COLS = 85
 ROWS = 60
 CAPTION = "Greed"
-DATA_PATH = os.path.dirname(os.path.abspath(__file__)) + "/data/messages.txt"
 WHITE = Color(255, 255, 255)
 DEFAULT_ARTIFACTS = 30
 
@@ -66,7 +65,7 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
 
-        artifact = Actor()
+        artifact = Artifact()
         artifact.set_text(text)
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
