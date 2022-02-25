@@ -3,6 +3,7 @@
 would not be contented with what he would like to have." 
 Greed is a game in which the player seeks to gather as many falling gems as possible. Take risks, push the limit, and get greedy in this game. But don't get too greedy or you'll lose it all!
 It's easy to play. Gems and rocks fall from the top screen. Move left or right along the bottom screen. Touch the gem and earn a point. Touch the rock and lose a point. Gems disappear as you touch them. You have control, so you end the game when you want.
+
 ## Getting Started
 ---
 Make sure you have Python 3.8.0 or newer and Raylib Python CFFI 3.7 installed and running on your machine. You can install Raylib Python CFFI by opening a terminal and running the following command.
@@ -14,7 +15,7 @@ After you've installed the required libraries, open a terminal and browse to the
 python3 greed
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the 
-project folder. Select the main module inside the hunter folder and click the "run" icon.
+project folder. Select the main module inside the greed folder and click the "run" icon.
 
 ## Project Structure
 ---

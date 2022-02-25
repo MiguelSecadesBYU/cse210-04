@@ -1,4 +1,3 @@
-import os
 import random
 
 from game.casting.actor import Actor
@@ -78,7 +77,6 @@ def main():
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
     director = Director(keyboard_service, video_service)
     director.start_game(cast)
-
 
 if __name__ == "__main__":
     main()
