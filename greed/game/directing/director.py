@@ -60,19 +60,11 @@ class Director:
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
         robot.move_next(max_x, max_y)
-        points = 0
 
         for art in artifacts:
             art.move_next(max_x, max_y)
 
-        for artifact in artifacts:
-            if robot.get_position().equals(artifact.get_position()):
-                if artifact.get_text() == '*':
-                    points = 1
-                elif artifact.get_text() == 'o':
-                    points = -1
-                artifact.set_text("")
-        self._points += points
+        self._points = score.add_points(artifacts,robot)
 
         score.set_text(f"Score: {self._points}")
 

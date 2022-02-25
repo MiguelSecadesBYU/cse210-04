@@ -4,6 +4,7 @@ import random
 from game.casting.actor import Actor
 from game.casting.artifact import Artifact
 from game.casting.cast import Cast
+from game.casting.score import Score
 
 from game.directing.director import Director
 
@@ -31,7 +32,7 @@ def main():
     cast = Cast()
 
     # create the score
-    score = Actor()
+    score = Score()
     score.set_text("")
     score.set_font_size(FONT_SIZE)
     score.set_color(WHITE)
@@ -70,7 +71,6 @@ def main():
         artifact.set_font_size(FONT_SIZE)
         artifact.set_color(color)
         artifact.set_position(position)
-        #artifact.set_text(text)
         cast.add_actor("artifacts", artifact)
 
     # start the game

@@ -1,6 +1,8 @@
-from game.casting.actor import Actor
 
-class Score(Actor):
+from game.casting.artifact import Artifact
+
+class Score (Artifact):
+
     """
     Points earned or lost by Actor.
     
@@ -21,11 +23,19 @@ class Score(Actor):
         """
         return self._points
 
-    def add_points(self, points):
+    def add_points(self, artifacts, robot):
         """Updates the message to the given one.
         
         Args:
             message (string): The given message.
         """
-        self._points += points
-        self.set_text(f"Score: {self._points}")
+        points = 0
+        for artifact in artifacts:
+            if robot.get_position().equals(artifact.get_position()):
+                if artifact.get_text() == '*':
+                    points = 1
+                elif artifact.get_text() == 'o':
+                    points = -1
+                artifact.set_text("")
+                self._points += points
+        return self._points
